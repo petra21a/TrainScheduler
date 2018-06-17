@@ -27,22 +27,20 @@ var config = {
 
   database.ref().on("child_added", function(snapshot){
     event.preventDefault();
-        // First Time (pushed back 1 year to make sure it comes before current time)
-        let firstTimeConverted = moment(snapshot.val().firstTrain, "HH:mm").subtract(1, "years");
-    //     // Difference between the times
+    // Logic from Activity 17 and 21 almost verbatim
+    let firstTimeConverted = moment(snapshot.val().firstTrain, "HH:mm").subtract(1, "years");
     let diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-      // Time apart (remainder)
     let tRemainder = diffTime % snapshot.val().trainFrequency;
     let nextArrival = snapshot.val().trainFrequency - tRemainder;
-    let minutesAway = moment().add(nextArrival, "minutes");
-
+    let minutesAway = moment().add(nextArrival, 'm');
+    
     $("tbody").append("<tr><br>"+
     "<td>"+snapshot.val().trainName+"</td><br>"+
     "<td>"+snapshot.val().destination+"</td><br>"+
     "<td>"+snapshot.val().trainFrequency+"</td><br>"+
-    "<td>"+nextArrival+"</td><br>"+
-    "<td>"+minutesAway+"<td><br>")
+    "<td>"+moment(minutesAway).format("HH:mm")+"</td><br>"+
+    "<td>"+nextArrival+"<td><br>")
   });
 
 
-console.log(moment().format("DD/MM/YY hh:mm A"));
+// console.log(moment().format("DD/MM/YY hh:mm A"));
