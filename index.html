@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TrainScheduler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/reset.css" />
+      <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    
+</head>
+<body class="container">
+    <header class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://www.swissvistas.com/image-files/swiss-trains-01.jpg">
+                    <div class="card-title">
+                        <div class="flow-text row valign-wrapper">
+                            <div class="col s12 m6 offset-m4 xl8 offset-xl8">
+                                <h1 class="center-align">Train Scheduler</h1>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="section grey darken-3">
+        <table class="responsive-table striped">
+            <thead class="flow-text light-green-text text-lighten-5">
+                <tr>
+                    <th>Train Name</th>
+                    <th>Destiantion</th>
+                    <th>Frequency (min)</th>
+                    <th>Next Arrival</th>
+                    <th>Minutes Away</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </main>
+    <section class="row light-green lighten-4">
+        <h2 class="flow-text green darken-5 light-green-text text-lighten-5">Add Train</h2>
+        <div class="divider"></div>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <h4><input id="train-name" type="text" class="validate"></h4>
+                    <label class="flow-text active" for="train-name"><h4 class="grey-text text-darken-3">Train Name</h4></label>
+                </div>
+                <div class="input-field col s6">
+                    <h4><input id="destination" type="text" class="h2 validate"></h4>
+                    <label class="flow-text active" for="destination"><h4 class="grey-text text-darken-3">Destination</h4></label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-field col s6">
+                   <h4><input id="first-train" type="text" class="validate"></h4> 
+                    <label class="flow-text active" for="first-train"><h4 class="grey-text text-darken-3">First Train Time</h4></label>
+                    <h6 class="flow-text grey-text">HH:mm - milliary time</h6>
+                </div>
+                <div class="input-field col s6">
+                    <h4><input id="train-frequency" type="text" class="validate"></h4>
+                    <label class="flow-text active"for="train-frequency"><h4 class="grey-text text-darken-3">Frequency (min)</h4></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 offset-s5">
+                        <button id="add-train" class="btn-large align-center waves-effect waves-light" type="submit" name="action">
+                            Submit
+                        </button>
+                </div>
+            </div>
+        </form>
+
+    </section>
+
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+<script type="text/javascript" src="./assets/app.js"></script>
+</html>
