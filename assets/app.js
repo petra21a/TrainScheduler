@@ -36,7 +36,7 @@ var config = {
     event.preventDefault();
     // Logic from Activity 17 and 21 almost verbatim
     addTrain(snapshot.val().trainName,snapshot.val().destination,snapshot.val().firstTrain,snapshot.val().trainFrequency,snapshot.val().lastUpdated);
-    // console.log(trainLocalCopy);
+    console.log(snapshot.val().trainName.split(" ").join("-").toLowerCase());
 
     let firstTimeConverted = moment(snapshot.val().firstTrain, "HH:mm").subtract(1, "years");
     let diffTime = moment().diff(moment(firstTimeConverted), "minutes");
@@ -45,7 +45,7 @@ var config = {
     let nextArrival = moment().add(minutesAway, 'm');
 
     let newTrain = $("<tr>");
-    newTrain.attr("id", "train-"+snapshot.val().trainName).append(
+    newTrain.attr("id", "train-"+snapshot.val().trainName.split(" ").join("-").toLowerCase()).append(
     "<td>"+snapshot.val().trainName+"</td><br>"+
     "<td>"+snapshot.val().destination+"</td><br>"+
     "<td>"+snapshot.val().trainFrequency+"</td><br>"+
@@ -91,7 +91,7 @@ let scheduleUpdate = function(){
         let minutesAway = trainLocalCopy[i].trainFrequency - tRemainder;
         let nextArrival = moment().add(minutesAway, 'm');
 
-        $("#train-"+trainLocalCopy[i].trainName).fadeOut("slow").html(
+        $("#train-"+trainLocalCopy[i].trainName.split(" ").join("-").toLowerCase()).fadeOut("slow").html(
             "<td>"+trainLocalCopy[i].trainName+"</td><br>"+
             "<td>"+trainLocalCopy[i].destination+"</td><br>"+
             "<td>"+trainLocalCopy[i].trainFrequency+"</td><br>"+
